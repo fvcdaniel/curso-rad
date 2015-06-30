@@ -1,15 +1,34 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
+  
+  
+  resources :tests
+  
+  resources :students
+
+  #resources :contacts
+  post 'contacts' => 'static_pages#create_contact'
+  
+  #get 'static_pages/home'
 
   get 'static_pages/help'
   
   get 'static_pages/about'
+  
+  get 'static_pages/contact'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  post 'students/:id' => 'students#create'
+  
+  get 'index' => 'students#index'
+
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'static_pages#home'
+  
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :users
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

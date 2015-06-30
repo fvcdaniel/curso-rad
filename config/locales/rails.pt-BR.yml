@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      contact: 'Contato'  
+    attributes:
+      contact:
+        name: 'Nome'
+        email: 'Email'
+        description: "Descrição"

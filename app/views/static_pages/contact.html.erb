@@ -1,0 +1,10 @@
+<%provide(:title, "Contato")%>
+<h1><%=t 'activerecord.models.contact', default: "Contato Padrao"%></h1>
+<p>Esta é minha página de contato: email@teste.com</p>
+
+<%= simple_form_for @contact do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :description, label: Contact.human_attribute_name("description"), as: :text %>
+  <%= f.button :submit %>
+<% end %>
